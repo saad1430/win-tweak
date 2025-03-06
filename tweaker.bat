@@ -140,7 +140,7 @@ echo [29] TOR Browser                 [30] MS Office 365
 echo [31] PowerToys                   [32] MegaCMD
 echo [33] Composer                    [34] Proton Pass
 echo [35] Postman                     [36] Visual Studio 2022 Community
-echo [37] MS SQLServer 2022           [38] 
+echo [37] MS SQLServer 2022           [38] DirectX Manual
 echo =======================================
 echo [0] Exit to Main Menu            [x] Exit
 echo =======================================
@@ -203,6 +203,11 @@ if "%software_choice%"=="34" winget install --id=Proton.ProtonPass -i
 if "%software_choice%"=="35" winget install --id=Postman.Postman  -i
 if "%software_choice%"=="36" winget install --id=Microsoft.VisualStudio.2022.Community -i
 if "%software_choice%"=="37" winget install --id=Microsoft.SQLServer.2022.Developer -i
+if "%software_choice%"=="38" (
+    curl "https://download.microsoft.com/download/8/4/a/84a35bf1-dafe-4ae8-82af-ad2ae20b6b14/directx_Jun2010_redist.exe" --output "C:/dx.exe"
+    "C:/dx.exe"
+    del "C:/dx.exe"
+)
 if "%software_choice%"=="0" goto menu
 if "%software_choice%"=="x" exit
 
@@ -290,4 +295,3 @@ steamcmd +login anonymous +app_update 2465200 validate +quit
 echo Sons Of The Forest Server Installed! Press any key to return to the menu...
 pause
 goto install_games
-
